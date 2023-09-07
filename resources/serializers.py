@@ -30,6 +30,6 @@ class ResourceSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'image', 'image_filter',
-            'link', 'country_filter', 'resource_type_filter',
+            'title', 'content', 'image',
+            'resource_url', 'country_filter', 'resource_type_filter',
         ]

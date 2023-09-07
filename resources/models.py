@@ -4,23 +4,6 @@ from django.contrib.auth.models import User
 
 class Resource(models.Model):
 
-    image_filter_choices = [
-        ('_1977', '1977'),
-        ('brannan', 'Brannan'),
-        ('earlybird', 'Earlybird'),
-        ('hudson', 'Hudson'),
-        ('inkwell', 'Inkwell'),
-        ('lofi', 'Lo-Fi'),
-        ('kelvin', 'Kelvin'),
-        ('normal', 'Normal'),
-        ('nashville', 'Nashville'),
-        ('rise', 'Rise'),
-        ('toaster', 'Toaster'),
-        ('valencia', 'Valencia'),
-        ('walden', 'Walden'),
-        ('xpro2', 'X-pro II')
-    ]
-
     country_filter_choices = [
         ('mixed', 'Mixed'),
         ('argentina', 'Argentina'),
@@ -60,10 +43,7 @@ class Resource(models.Model):
     image = models.ImageField(
         upload_to='images/', default='../default_post_ve6bmd', blank=True
     )
-    image_filter = models.CharField(
-        max_length=32, choices=image_filter_choices, default='normal'
-    )
-    link = models.URLField(max_length=100, unique=True)
+    resource_url = models.URLField(max_length=100, unique=True)
     country_filter = models.CharField(
         max_length=32, choices=country_filter_choices, default='normal'
     )
