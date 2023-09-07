@@ -22,6 +22,7 @@ class Resource(models.Model):
     ]
 
     country_filter_choices = [
+        ('mixed', 'Mixed'),
         ('argentina', 'Argentina'),
         ('bolivia', 'Bolivia'),
         ('canary_islands', 'Canary Islands'),
@@ -45,6 +46,12 @@ class Resource(models.Model):
         ('venezuela', 'Venezuela'),
     ]
 
+    resource_type_filter_choices = [
+        ('podcast_listen', 'Podcast/Listening'),
+        ('youtube_video', 'YouTube/Video'),
+        ('book_read', 'Book/Reading'),
+    ]
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -56,9 +63,12 @@ class Resource(models.Model):
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
-    link = models.URLField(max_length=32, unique=True)
+    link = models.URLField(max_length=100, unique=True)
     country_filter = models.CharField(
         max_length=32, choices=country_filter_choices, default='normal'
+    )
+    resource_type_filter = models.CharField(
+        max_length=32, choices=resource_type_filter_choices, default='normal'
     )
 
     class Meta:
