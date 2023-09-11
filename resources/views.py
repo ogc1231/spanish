@@ -15,7 +15,7 @@ class ResourceList(generics.ListCreateAPIView):
 
 
 class ResourceDetail(generics.RetrieveUpdateDestroyAPIView):
-  
+
     serializer_class = ResourceSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Resource.objects.all()
